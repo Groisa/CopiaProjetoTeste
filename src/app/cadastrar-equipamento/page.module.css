@@ -1,0 +1,114 @@
+.mainContainer {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  min-height: 300px;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 2px rgba(00, 000, 000, 0.5);
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.containerButton {
+  display: flex;
+  flex-direction: row !important; 
+  gap: 20px;
+  width: 70%;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.containerForm input {
+  height: 32px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.containerAmpolaAdd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.addContainer {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: #fff;
+  height: 20px;
+  background-color: green;
+  cursor: pointer;
+}
+
+.containerInputs button {
+
+  min-width: 190px;
+  padding: 10px;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 3px 2px rgba(00, 000, 000, 0.5);
+  max-width: 190px;
+}
+
+
+@media(max-width:768px) {
+
+  .mainContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .containerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .containerInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .containerInputs button {
+
+    min-width: 100%;
+
+  }
+  .containerButton {
+    flex-direction: column !important;
+  }
+}
