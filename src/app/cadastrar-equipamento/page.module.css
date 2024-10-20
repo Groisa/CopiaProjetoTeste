@@ -75,15 +75,19 @@
 .containerInputs button {
 
   min-width: 190px;
+  cursor: pointer;
   padding: 10px;
   font-size: 0.8rem;
   border-radius: 10px;
   border: none;
   box-shadow: 2px 2px 3px 2px rgba(00, 000, 000, 0.5);
   max-width: 190px;
+  transition: all 0.3s;
 }
 
-
+.containerInputs button:hover {
+  scale: 1.01;
+}
 @media(max-width:768px) {
 
   .mainContainer h2 {

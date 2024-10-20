@@ -2,7 +2,7 @@
 
 
 import React, { FormEventHandler, useEffect, useState } from 'react';
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 // import { Container } from './styles';
 import styles from './page.module.css'
 import { db } from '../../../firebase';
@@ -20,6 +20,11 @@ interface AmpolasInput {
     indexId: number,
     type?: 'inter' | 'extern' | ''
 }
+interface ResponseData {
+    id: string;
+    data: PropsValues
+}
+
 const AddEquipament: React.FC = () => {
     const [valuesInputs, setValueInputs] = useState<PropsValues>({
         name: '',
@@ -74,15 +79,36 @@ const AddEquipament: React.FC = () => {
         }
 
     }
+    const [responseData, setResponseData] = useState<ResponseData[]>()
+    const getAllEquipament = async () => {
+        const ref = collection(db, "eq1uipaments")
+        const querySnapshot = await getDocs(ref);
+        const array = [] as ResponseData[]
+        const response = querySnapshot.forEach(doc => {
+            array.push({
+                data: doc.data() as PropsValues,
+                id: doc.id
+            })
+        })
+        if (array.length === 0){
+            toast.error("Falha ao encontrar equipamentos")
+        }
+    }
+
     const [counter, setCounter] = useState<number>(0)
     useEffect(() => {
         setTimeout(() => {
             setInit(true)
         }, 10)
     }, [])
+    const [visible, setVisible] = useState<boolean>(false)
+
+
     useEffect(() => {
-        console.log(valuesAmpolas)
-    }, [valuesAmpolas])
+        if (visible) {
+            getAllEquipament()
+        }
+    }, [visible])
     return (
         <main className={styles.mainContainer}>
             <h2>Cadastrar Equipamento</h2>
@@ -206,10 +232,19 @@ const AddEquipament: React.FC = () => {
                     </div>
                     <div className={`${styles.containerInputs} ${styles.containerButton}`}>
                         <button type='submit' style={{ background: "#e5b800", color: "#fff" }}>Cadastrar Equipamentos</button>
-                        <button style={{ backgroundColor: 'red', color: '#fff' }}>Cancelar</button>
+                        <button type="button"
+                            onClick={() => {
+                                window.location.assign('/')
+                            }}
+                            style={{ backgroundColor: 'red', color: '#fff' }}>Cancelar</button>
                     </div>
                 </form>
             }
+            <div className={`${styles.containerInputs} ${styles.containerButton}`}>
+                <button onClick={() => {
+                    setVisible(e => !e)
+                }} >{visible ? 'Fechar' : "Mostrar"} todos equipamentos</button>
+            </div>
         </main>
     );
 }
