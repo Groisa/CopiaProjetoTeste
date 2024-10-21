@@ -30,7 +30,7 @@
 
 .containerButton {
   display: flex;
-  flex-direction: row !important; 
+  flex-direction: row !important;
   gap: 20px;
   width: 70%;
 
@@ -85,13 +85,68 @@
   transition: all 0.3s;
 }
 
+.textNameEquipament {
+  font-size: 14px;
+
+
+}
+
+.containertags {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .containerInputs button:hover {
   scale: 1.01;
 }
+
+.containerNameAndTag {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 5px;
+  width: 80%;
+  gap: 10px;
+}
+
+.closeButton {
+  color: #fff;
+  background-color: red;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.containerButtonsTags {
+  display: flex;
+ 
+  flex-direction: row;
+  gap: 10px;
+  width: 100%
+}
+
+.closeButton:hover {
+  scale: 1.01;
+}
+
+.dataTag {
+  font-size: 13px;
+}
+
 @media(max-width:768px) {
 
   .mainContainer h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .containerForm {
@@ -112,7 +167,15 @@
     min-width: 100%;
 
   }
+
   .containerButton {
     flex-direction: column !important;
+  }
+
+  .containertags {
+    flex-direction: column;
+  }
+  .containerNameAndTag {
+    width: 95%;
   }
 }
